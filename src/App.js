@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Breadcrumb, Layout, Menu, Theme } from "antd";
+import Logo from "./components/Logo";
+import MenuList from "./components/MenuList";
+import BreadcrumbItem from "./components/BreadcrumbItem";
+import ContentItem from "./components/ContentItem";
+import HeaderItem from "./components/HeaderItem";
 
-function App() {
+const {Header, Content, Footer, Sider} = Layout
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="layout-container">
+      <Sider className="sidebar">
+        <Logo /> 
+        <MenuList />
+      </Sider>
+      <Layout>
+        <Header className="header">
+          <HeaderItem />
+        </Header>
+        <Content className="content">
+          <BreadcrumbItem />
+          <ContentItem />
+        </Content>
+        <Footer></Footer>
+      </Layout>
+    </Layout>
   );
 }
-
-export default App;
+export default App
